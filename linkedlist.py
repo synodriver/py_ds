@@ -85,14 +85,10 @@ class LinkedList:
         return list(self)[item]
 
     def __setitem__(self, key:int, value):
-        index=0
-        while index<key:
+        for _ in range(key):
             self._pointer=self._pointer.next
-            index+=1
         self._pointer.data=value
         self._pointer=self._head
-
-        pass
 
     def __str__(self):
         return str(list(self))
@@ -102,8 +98,7 @@ class LinkedList:
         while self._pointer:
             count+=1
             self._pointer=self._pointer.next
-        else:
-            self._pointer=self._head
+        self._pointer=self._head
         return count
 
 
